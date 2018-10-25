@@ -1,6 +1,7 @@
 import React from 'react'
 
 
+
 class NewProject extends React.Component {
 
     state={
@@ -15,7 +16,7 @@ class NewProject extends React.Component {
     }
 
     setInput = () => {
-        return this.props.clients.map(client => <option key={client.id} value={client.name} />)
+        return this.props.clients.map(client => <option key={client.id} value={client.name}>{client.name}</option>)
     }
 
     handleChange = (event) => {
@@ -35,34 +36,38 @@ class NewProject extends React.Component {
 
     render(){
         return(
+        
             <div>
-                <button onClick={this.props.toggleForm} className="button">Close</button>
-                <form>  
-                    <label> For client: 
-                        <input list="client-list" name="client" onChange={this.getClientId}/>
-                        <datalist id="client-list">
-                            {this.setInput()}
-                        </datalist>
-                    </label>
-                    <label >Description
-                        <textarea name="description" onChange={this.handleChange}>
-                        
-                        </textarea>
-                    </label>
-                    <label>Name the project
-                        <input type="text" name="name" onChange={this.handleChange}/>
-                    </label>
-                    <label>Hourly rate
-                        <input type="number" name="hourly_rate" onChange={this.handleChange}/>
-                    </label>
-                    <label>Start date
-                        <input type="date" name="start_date" onChange={this.handleChange}/>
-                    </label>
-                    <label>Due date
-                        <input type="date" name="end_date" onChange={this.handleChange}/>
-                    </label>
-                    <button onClick={(event) => this.handleSubmit(event) } className="button">Add</button>
-                </form>
+              <div className="row">
+                <div className="small-12 columns">
+                        <form>  
+                            <label> For client: 
+                                <select list="client-list" name="client" onChange={this.getClientId}>
+                                
+                                    {this.setInput()}
+                                </select>
+                            </label>
+                            <label >Description
+                                <textarea name="description" onChange={this.handleChange}>
+                                
+                                </textarea>
+                            </label>
+                            <label>Name the project
+                                <input type="text" name="name" onChange={this.handleChange}/>
+                            </label>
+                            <label>Hourly rate
+                                <input type="number" name="hourly_rate" onChange={this.handleChange}/>
+                            </label>
+                            <label>Start date
+                                <input type="date" name="start_date" onChange={this.handleChange}/>
+                            </label>
+                            <label>Due date
+                                <input type="date" name="end_date" onChange={this.handleChange}/>
+                            </label>
+                            <button onClick={(event) => this.handleSubmit(event) } className="button">Add Project</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         )
     }

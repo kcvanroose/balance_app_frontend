@@ -1,18 +1,21 @@
 import React from 'react'
 import Moment from 'react-moment';
+import * as Icon from 'react-feather';
 
 const ToDo = (props) => {
     
     return( 
-        <div className="row">
-            <p className="small-12 columns">{props.toDo.description}</p>
-            <p className="small-6 columns">Due date: <Moment format="DD-MM-YYYY">{props.toDo.due_date}</Moment></p>
-            <div className="small-6 columns">
-                <button  className="right button"
-                onClick={() => props.toggleTaskState(props.toDo.id)}>
-                Complete
+        <div className="small-cards due row">
+            <div className="small-12 columns">
+                <button  className=""
+                    onClick={() => props.toggleTaskState(props.toDo.id)}>
+                    <Icon.CheckCircle color="#82E0C1" />
                 </button>
-            </div>          
+            </div>
+            <div className="small-12 columns">
+                <p>{props.toDo.description}</p>
+            </div>
+            <div className="small-12 due-project columns" ><strong>Due date: </strong><Moment format="DD-MM-YYYY">{props.toDo.due_date}</Moment></div>       
         </div>
     )
 }

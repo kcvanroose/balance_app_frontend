@@ -1,18 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Moment from 'react-moment';
+import * as Icon from 'react-feather';
 
 const ClientSummary = (props) => {
 
 
     return (
-        <Link to={`/clients/${props.project.id}`} >
-            <div className="small-project row">
-                <div className="small-6 columns"><strong>{props.project.name}</strong></div>
-                <div className="small-6 columns"><strong>Due date: </strong><Moment format="DD-MM-YYYY">{props.project.end_date}</Moment></div>
-                <div className="small-6 columns"><strong>Description: </strong>{props.project.description}</div>
-            </div>
-        </Link>
+                <div className="small-cards row">
+                    <div className="small-12 columns">
+                        <Link to={`/clients/${props.client.id}`} >
+                            <h3 ><strong>{props.client.name}</strong></h3>
+                        </Link>
+                    </div>
+                    <div className="small-12 contact-middle columns"><strong>Contact: </strong>{props.client.contact}</div>
+                    <div className="small-5 contact-details columns">
+                        <div className="icon">
+                            <Icon.Phone width='20px'/>
+                        </div>
+                        <div className="phone">
+                            <a href={`tel:${props.client.phone_number}`}>{props.client.phone_number}</a>
+                        </div>
+                    </div>
+                    <div className="small-7 contact-details columns">
+                        <div className="icon">
+                            <Icon.Mail width='20px'/>
+                        </div>
+                        <div className="phone">
+                            <a href={`mailto:${props.client.email_address}`}>{props.client.email_address}</a>
+                        </div>
+                    </div>
+                </div> 
+ 
     )
 
 

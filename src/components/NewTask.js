@@ -19,17 +19,18 @@ class NewTask extends React.Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.props.closeForm} className="button">Close</button>
-                <form>  
-                    <label>Task description
-                        <input type="text" placeholder="Todo..." name="description" onChange={this.handleChange}/>
-                    </label>
-                    <label>Due_date
-                        <input type="date" name="due_date" onChange={this.handleChange}/>
-                    </label>
-                    <button onClick={(event) => this.handleSubmit(event) } className="button">Add</button>
-                </form>
+            <div className="row">
+                <div className="small-12 columns">
+                    <form>  
+                        <label>Task description
+                            <input type="text" placeholder="Todo..." name="description" onChange={this.handleChange}/>
+                        </label>
+                        <label>Due_date
+                            <input type="date" name="due_date" onChange={this.handleChange}/>
+                        </label>
+                        <button onClick={(event) => this.handleSubmit(event) } className="button">Add</button>
+                    </form>
+                </div>
             </div>
         )
         }

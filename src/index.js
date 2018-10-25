@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 import './css/foundation.css'
+import './css/foundation-icons.css'
 import App from './App';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Moment from 'react-moment';
 import * as serviceWorker from './serviceWorker';
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Project from './Project'
-import { Link } from 'react-router-dom'
+
 
 class ProjectView extends React.Component {
    
@@ -15,7 +15,14 @@ class ProjectView extends React.Component {
                         completedTasks.push(task)
                     }
                 } )
-        return <Project addNewTask={this.props.addNewTask} toggleTaskState={ this.props.toggleTaskState } project={ project } completedTasks={completedTasks} toDos={toDos} />
+        return <Project toggleProjectState={this.props.toggleProjectState} 
+                        addNewTask={this.props.addNewTask} 
+                        toggleTaskState={ this.props.toggleTaskState } 
+                        project={ project } 
+                        completedTasks={completedTasks} 
+                        toDos={toDos} 
+                        updateTime={this.props.updateTime}
+                        deleteProject={this.props.deleteProject} />
     }
    
     render() {
