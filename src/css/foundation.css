@@ -5060,6 +5060,10 @@ body {
 .logout {
   margin-top: 2rem;
   margin-right: 1rem;
+  
+}
+
+.logout svg {
   color:#8284E0;
 }
 
@@ -5304,6 +5308,7 @@ select option {
   color: black;
 }
 
+ 
 /* Animations */
 
 .slide-appear {

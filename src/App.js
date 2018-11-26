@@ -5,26 +5,72 @@ import Nav from "./components/Nav"
 import Clients from "./components/Clients"
 import { Route, withRouter} from 'react-router-dom'
 import Logo from './components/Logo'
+import Login from './components/Login'
 
 
 
 class App extends Component {
   state = {
+    currentUser: undefined,
     data: {}
   }
 
-  componentDidMount = () => {
-   
-    fetch('http://localhost:3000/users/1.json')
+  componentDidMount () {
+    const token = localStorage.getItem('token')
+    if (token) {
+      this.validate(token)
+      } else {
+      this.props.history.push('/login')
+      }
+  }
+  
+
+  login = (username, password) => {
+    return fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user: {
+          username,
+          password
+        }
+      })
+    }).then(resp => resp.json())
+    .then(data => {
+      if (data.error) {
+        console.log(data)
+      } else {
+        localStorage.setItem('token', data.token)
+      }
+    }).then(this.props.history.push('/'))
+    .then(this.fetchData())
+  }
+
+  validate = (token) => {
+    return fetch('http://localhost:3000/validate', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    }).then(this.fetchData())
+    .then(this.props.history.push('/'))
+    
+  }
+
+
+  fetchData = () => {
+    const token = localStorage.getItem('token')
+    return fetch('http://localhost:3000/users/1.json', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
         .then(response => response.json())
         .then(json => 
           this.setState({data: json, clients: json.clients, projects: json.clients.map(client => client.projects).reduce((array, projects) => {projects.forEach(p => array.push(p)); return array}, []),
           currentUser: { business_name: json.business_name, id: json.id, name: json.name, username: json.username } }))
   }
-
-  debug = (data) => {
-    debugger
-  } 
 
   toggleProjectState = (UpdatedProject) => {
     const projects = JSON.parse(JSON.stringify(this.state.projects))
@@ -248,11 +294,28 @@ class App extends Component {
       
   }
 
+  logout = () => {
+    this.setState({ 
+      currentUser: undefined,
+      data: undefined,
+      clients: undefined,
+      projects: undefined             
+    })
+    localStorage.removeItem('token')
+    this.props.history.push('/login')
+  }
+
   render() {
     return (
       <div className="App">
-        <Logo />
-        <Route exact path="/" component={ () => <Home data={this.state} /> }/>
+        <Logo logout={this.logout}/>
+     
+          <Route exact path="/" component={ () => <Home data={this.state} /> }/>
+          
+          <Route path='/login' component={ () => <Login fetch={this.login} />} />
+        
+       
+        
         <Route path="/projects" component={ () => 
           <Projects addNewTask={this.addNewTask}
           toggleTaskState={ this.toggleTaskState } 

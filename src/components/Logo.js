@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import * as Icon from 'react-feather';
 
-const Logo = () => {
+const Logo = (props) => {
 
 
 
@@ -15,7 +15,7 @@ const Logo = () => {
                 </Link>
             </div>
             <div className="text-right 4-small logout columns">
-                <Icon.LogOut />
+                <button onClick={ () => props.logout()}><Icon.LogOut /></button>
             </div>
         </div>
 

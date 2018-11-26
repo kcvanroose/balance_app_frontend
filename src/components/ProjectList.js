@@ -77,13 +77,20 @@ class ProjectList extends React.Component {
                 <div className="row project-list">
                     <div className="small-8 columns">
                         <h2 className="project-section">Projects</h2>
+                        <i>
+                            { this.state.showAllProjects ?
+                                "View all projects"
+                            :
+                                "View only due projects"
+                            }
+                        </i>
                         <div className="switch tiny">
                             <input onChange={ (event) => this.showAllProjects(event)} className="switch-input" id="Switch" type="checkbox" name="exampleSwitch" />
                                 <label className="switch-paddle" for="Switch">
-                                    <span class="show-for-sr">View all Projects</span>
+                                    
                                 </label>
                         </div>
-                    
+                       
                     </div>
                     <div className="small-4 add-project columns" >
                         <div className="text-right"><a onClick={ this.toggleForm } className="button">
