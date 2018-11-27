@@ -5060,7 +5060,6 @@ body {
 .logout {
   margin-top: 2rem;
   margin-right: 1rem;
-  
 }
 
 .logout svg {
@@ -5308,6 +5307,9 @@ select option {
   color: black;
 }
 
+.login {
+  margin-top: 3rem
+}
  
 /* Animations */
 

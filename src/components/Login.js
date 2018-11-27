@@ -18,7 +18,7 @@ class Login extends React.Component {
     
     render() {
         return (
-            <div className="row">
+            <div className="row login">
                 <div className="small-12 columns">
                     <form> 
                         <label>Username
