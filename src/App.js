@@ -103,7 +103,7 @@ class App extends Component {
   }
 
   updateProject = (projectData) => {
-    return fetch( `http://localhost:3000/projects/${projectData.id}`, {
+    return fetch( `https://friendly-tereshkova-f8ecc1.netlify.com/projects/${projectData.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ class App extends Component {
   }
 
   addNewTask = (taskData) => {
-    return fetch(`http://localhost:3000/tasks`, {
+    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/tasks`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ class App extends Component {
   }
 
   updateTask = task => {
-   return fetch( `http://localhost:3000/tasks/${task.id}`, {
+   return fetch( `https://friendly-tereshkova-f8ecc1.netlify.com/${task.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ class App extends Component {
   }
 
   deleteClient = clientId => {
-    return fetch(`http://localhost:3000/projects/${clientId}`, {
+    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/${clientId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ class App extends Component {
   }
 
   deleteProject = (projectId) => {
-    return fetch(`http://localhost:3000/projects/${projectId}`, {
+    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/${projectId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -241,7 +241,7 @@ class App extends Component {
   }
 
   addNewProject = (projectData) => {
-    return fetch(`http://localhost:3000/projects`, {
+    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/projects`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
@@ -271,7 +271,7 @@ class App extends Component {
   
   addNewClient = (clientData) => {
    
-    return fetch(`http://localhost:3000/clients`, {
+    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/clients`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
