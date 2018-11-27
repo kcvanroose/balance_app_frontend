@@ -9,6 +9,7 @@ import Login from './components/Login'
 
 
 
+
 class App extends Component {
   state = {
     currentUser: undefined,
@@ -26,7 +27,7 @@ class App extends Component {
   
 
   login = (username, password) => {
-    return fetch('http://localhost:3000/login', {
+    return fetch('https://secret-garden-71234.herokuapp.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -47,7 +48,7 @@ class App extends Component {
   }
 
   validate = (token) => {
-    return fetch('http://localhost:3000/validate', {
+    return fetch('https://secret-garden-71234.herokuapp.com/validate', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
@@ -60,7 +61,7 @@ class App extends Component {
 
   fetchData = () => {
     const token = localStorage.getItem('token')
-    return fetch('http://localhost:3000/users/1.json', {
+    return fetch('https://secret-garden-71234.herokuapp.com/users/1.json', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
