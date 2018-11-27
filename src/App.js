@@ -103,7 +103,7 @@ class App extends Component {
   }
 
   updateProject = (projectData) => {
-    return fetch( `https://friendly-tereshkova-f8ecc1.netlify.com/projects/${projectData.id}`, {
+    return fetch( `https://secret-garden-71234.herokuapp.com/projects/${projectData.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ class App extends Component {
   }
 
   addNewTask = (taskData) => {
-    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/tasks`, {
+    return fetch(`https://secret-garden-71234.herokuapp.com//tasks`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
@@ -157,7 +157,7 @@ class App extends Component {
   }
 
   updateTask = task => {
-   return fetch( `https://friendly-tereshkova-f8ecc1.netlify.com/${task.id}`, {
+   return fetch( `https://secret-garden-71234.herokuapp.com/tasks/${task.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ class App extends Component {
   }
 
   deleteClient = clientId => {
-    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/${clientId}`, {
+    return fetch(`https://secret-garden-71234.herokuapp.com/clients/${clientId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -213,7 +213,7 @@ class App extends Component {
   }
 
   deleteProject = (projectId) => {
-    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/${projectId}`, {
+    return fetch(`https://secret-garden-71234.herokuapp.com/projects/${projectId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -241,7 +241,7 @@ class App extends Component {
   }
 
   addNewProject = (projectData) => {
-    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/projects`, {
+    return fetch(`https://secret-garden-71234.herokuapp.com/projects`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
@@ -271,7 +271,7 @@ class App extends Component {
   
   addNewClient = (clientData) => {
    
-    return fetch(`https://friendly-tereshkova-f8ecc1.netlify.com/clients`, {
+    return fetch(`https://secret-garden-71234.herokuapp.com/clients`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
